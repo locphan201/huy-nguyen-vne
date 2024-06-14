@@ -1,6 +1,8 @@
 import requests
 from tqdm import tqdm
 
+FILEPATH = 'hotnews_articles.txt'
+
 links = [f'https://vnexpress.net/microservice/listhotnews/type/{i}' for i in range(1, 9)]
 
 urls = []
@@ -24,7 +26,7 @@ for link in tqdm(links, desc='Process pages'):
     else:
         print(f'Failed to retrieve the web page. Status code: {response.status_code}')
 
-with open('hot_news_articles.txt', 'w', encoding='utf-8') as file:
+with open(FILEPATH, 'w', encoding='utf-8') as file:
     file.write('\n'.join(urls))
     
 print(f'Total urls: {len(urls)}')

@@ -4,17 +4,18 @@ from tqdm import tqdm
 import sys
 import os
 
-FILEPATH = ''
+READFILE = 'category_articles.txt'
+FILEPATH = 'category_content.txt'
 
 try:
-    with open('hot_news_articles.txt', 'r') as file:
+    with open(READFILE, 'r') as file:
         urls = file.readlines()
 except Exception as e:
     print('Error:', str(e))
     sys.exit()
 
 if len(urls) == 0:
-    print('Please run hotnews.py first!')
+    print('Please run hotnews.py and category.py first!')
     sys.exit()
 
 if not os.path.exists(FILEPATH):
